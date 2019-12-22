@@ -1,0 +1,50 @@
+{
+  "LINKS": {
+    "home": "lang",
+    "about": "lang-about",
+    "settings": "settings"
+  },
+  "NAVBAR": {
+    "register": "CADASTRE-SE",
+    "login": "LOGIN"
+  },
+  "MENU_DRAWER": {
+    "home": "Home",
+    "about": "Sobre",
+    "causes": "Causas",
+    "products": "Produtos",
+    "settings": "Configurações",
+    "english": "English Version",
+    "portuguese": "Versão em português"
+  },
+  "SETTINGS": {
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Celular"
+    },
+    "interests": "Interesses",
+    "saveButton": "SALVAR"
+  },
+  "LOGIN_FORM": {
+    "cancel": "CANCELAR",
+    "login": "Login",
+    "labels": {
+      "email": "Email",
+      "password": "Senha"
+    }
+  },
+  "REGISTER_FORM": {
+    "labels": {
+      "email": "Email",
+      "password": "Senha",
+      "confirmPassword": "Confirmar Senha"
+    },
+    "register": "Cadastre-se",
+    "cancel": "CANCELAR"
+  },
+  "ABOUT": {
+    "title": "QUEM SOMOS NÓS?",
+    "text": "Somos devs apaixonados pelo que fazemos, buscando uma solução que possa não só trazer benefícios para nós, mas como um retorno muito maior para a comunidade"
+  }
+}

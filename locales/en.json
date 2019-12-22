@@ -1,0 +1,50 @@
+{
+  "LINKS": {
+    "home": "index",
+    "about": "about",
+    "settings": "settings"
+  },
+  "NAVBAR": {
+    "register": "REGISTER",
+    "login": "LOGIN"
+  },
+  "MENU_DRAWER": {
+    "home": "Home",
+    "about": "About",
+    "causes": "Causes",
+    "products": "Products",
+    "settings": "Settings",
+    "english": "English Version",
+    "portuguese": "Versão em português"
+  },
+  "SETTINGS": {
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "interests": "Interests",
+    "saveButton": "SAVE"
+  },
+  "LOGIN_FORM": {
+    "cancel": "CANCEL",
+    "login": "Login",
+    "labels": {
+      "email": "Email",
+      "password": "Password"
+    }
+  },
+  "REGISTER_FORM": {
+    "labels": {
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password"
+    },
+    "register": "Register",
+    "cancel": "CANCEL"
+  },
+  "ABOUT": {
+    "title": "WHO ARE WE?",
+    "text": "We are passionate devs, always searching for a solution that can bring benefits not only for ourselves, but for the entire community and several good causes"
+  }
+}
