@@ -5,7 +5,7 @@
   "author": "Douglas Pires",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt --port 5000",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -13,9 +13,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "graphql-tag": "^2.10.1",
     "nuxt": "^2.0.0",
     "vue-i18n": "^8.15.1"
   },
@@ -33,6 +35,8 @@
     "eslint-plugin-prettier": "^3.0.1",
     "jest": "^24.1.0",
     "prettier": "^1.16.4",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
     "vue-jest": "^4.0.0-0"
   }
 }
