@@ -1,9 +1,12 @@
 <template>
   <v-flex>
-    <h1 class="montserrat primary--text">
-      {{ title }}
-    </h1>
-    <p>{{ text }}</p>
+    <h2 class="montserrat primary--text" v-text="whatIsItQuestion" />
+    <p v-text="whatIsItAnswer" />
+    <nuxt-link to="institutions">
+      {{ institutionsList }}
+    </nuxt-link>
+    <h2 class="montserrat primary--text" v-text="whoAreWeQuestion" />
+    <p v-text="whoAreWeAnswer" />
   </v-flex>
 </template>
 
@@ -13,8 +16,11 @@ export default Vue.extend({
   name: 'About',
   data() {
     return {
-      title: this.$t('ABOUT.title'),
-      text: this.$t('ABOUT.text')
+      whatIsItQuestion: this.$t('ABOUT.whatIsItQuestion'),
+      institutionsList: this.$t('ABOUT.institutionsList'),
+      whatIsItAnswer: this.$t('ABOUT.whatIsItAnswer'),
+      whoAreWeQuestion: this.$t('ABOUT.whoAreWeQuestion'),
+      whoAreWeAnswer: this.$t('ABOUT.whoAreWeAnswer')
     }
   }
 })
