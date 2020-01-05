@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <no-ssr>
+    <client-only>
       <div class="products__wrapper">
         <fi-card
           v-for="(post, index) in products"
@@ -9,7 +9,7 @@
           v-bind="post"
         />
       </div>
-    </no-ssr>
+    </client-only>
   </v-layout>
 </template>
 
