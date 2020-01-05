@@ -57,6 +57,7 @@
         <nuxt />
       </v-container>
     </v-content>
+    <fi-snackbar />
     <v-footer :fixed="fixed" app>
       <span>&copy; 2019</span>
     </v-footer>
@@ -67,11 +68,13 @@
 import Vue from 'vue'
 import FiLoginForm from '@/components/fi-login-form/FiLoginForm.vue'
 import FiRegisterForm from '@/components/fi-register-form/FiRegisterForm.vue'
+import FiSnackbar from '@/components/fi-snackbar/FiSnackbar.vue'
 
 export default Vue.extend({
   components: {
     FiLoginForm,
-    FiRegisterForm
+    FiRegisterForm,
+    FiSnackbar
   },
   data() {
     return {
