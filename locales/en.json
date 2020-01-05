@@ -44,7 +44,22 @@
     "cancel": "CANCEL"
   },
   "ABOUT": {
-    "title": "WHO ARE WE?",
-    "text": "We are passionate devs, always searching for a solution that can bring benefits not only for ourselves, but for the entire community and several good causes"
+    "whatIsItQuestion": "What is this Filua?",
+    "whatIsItAnswer": "This is an opensource project that shows you a catalog of products of our partners. Then, if someone clicks on any link listed here, he's redirected to a partner page. Buying by this link, all profitable money will be donated to a cause. Initially, there are some causes of our choice that can be met in institutions page.",
+    "institutionsList": "Institutions List",
+    "whoAreWeQuestion": "Who are we?",
+    "whoAreWeAnswer": "We are passionate devs, always searching for a solution that can bring benefits not only for ourselves, but for the entire community and several good causes."
+  },
+  "REGISTER_INSTITUTION": {
+    "registerTitle": "Register Institution",
+    "nameText": "Institution's Name",
+    "aboutText": "About the institution",
+    "websiteText": "Institution's website",
+    "bankInfoText": "Bank Info",
+    "bankNameText": "Bank Name",
+    "agencyText": "Agency",
+    "accountText": "Account",
+    "addAccountText": "Add new account",
+    "addInstitutionText": "Register Institution"
   }
 }
