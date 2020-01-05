@@ -1,0 +1,12 @@
+query getInstitution($name: String!) {
+  getInstitution(name: $name) {
+    id
+    name
+    about
+    accounts {
+      bankName
+      agency
+      account
+    }
+  }
+}

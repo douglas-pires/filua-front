@@ -1,0 +1,5 @@
+mutation addInstitution($input: InstitutionInfoInput!) {
+  addInstitution(input: $input) {
+    id
+  }
+}
