@@ -1,5 +1,5 @@
-query {
-  products {
+query getProducts($first: Int, $after: ID) {
+  products(first: $first, after: $after) {
     id
     name
     image

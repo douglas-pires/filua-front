@@ -7,8 +7,15 @@
     :max-width="maxWidth"
     height="fit-content"
   >
-    <v-img v-if="src" :src="src" class="white--text align-end">
-      <v-card-title>{{ title }}</v-card-title>
+    <v-img
+      v-if="src"
+      gradient="to top right, rgba(25,32,72,.7), rgba(255,75,43,.7)"
+      :src="src"
+      class="white--text align-end"
+    >
+      <v-card-title>
+        {{ croppedTitle }}
+      </v-card-title>
     </v-img>
     <v-card-title v-if="!src" class="primary--text">
       {{ title }}
@@ -31,6 +38,14 @@ export default Vue.extend({
     minWidth: { type: String, default: '200' },
     maxWidth: { type: String, default: '200' },
     to: { type: [String, Object], default: () => {} }
+  },
+  computed: {
+    croppedTitle() {
+      return this.title
+        .split(' ')
+        .slice(0, 4)
+        .join(' ')
+    }
   }
 })
 </script>

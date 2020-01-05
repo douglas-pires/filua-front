@@ -18,6 +18,17 @@ import Vue from 'vue'
 import FiCard from '@/components/fi-card/FiCard.vue'
 import products from '@/apollo/products.graphql'
 
+const createProductObject = (products: any[]): any[] =>
+  products.map((product: any) => ({
+    id: product.id,
+    title: product.name,
+    subtitle: product.partner,
+    text: product.name,
+    src: product.image,
+    to: product.partnerUrl,
+    partner: product.partner
+  }))
+
 export default Vue.extend({
   name: 'Index',
   components: {
@@ -25,61 +36,44 @@ export default Vue.extend({
   },
   async serverPrefetch() {
     const { data } = await this.$apollo.query({
-      query: products
+      query: products,
+      variables: { first: 24, after: null }
     })
-
-    this.$data.products = data.products.map((product: any) => ({
-      title: product.name,
-      subtitle: product.partner,
-      text: product.name,
-      src: product.image,
-      to: product.partnerUrl,
-      partner: product.partner
-    }))
+    this.$data.products = createProductObject(data.products)
   },
   data: () => ({
-    products: [
-      {
-        title: 'Post Title',
-        subtitle: 'Post Title',
-        text: 'Post Text',
-        to: { name: 'index' },
-        minWidth: '300px',
-        type: 'post'
-      },
-      {
-        title: 'Post Title',
-        subtitle: 'Post Title',
-        text: 'Post Text',
-        to: { name: 'index' },
-        minWidth: '300px',
-        src: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg',
-        type: 'product'
-      },
-      {
-        title: 'Post Title',
-        subtitle: 'Post Title',
-        text: 'Post Text',
-        to: { name: 'index' },
-        minWidth: '300px',
-        src: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg',
-        type: 'advertisement'
-      }
-    ]
+    products: [] as any[]
   }),
   async mounted() {
-    const { data } = await this.$apollo.query({
-      query: products
-    })
+    await this.handleProducts()
+    window.addEventListener('scroll', this.initInfiniteScrolling)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.initInfiniteScrolling)
+  },
+  methods: {
+    async handleProducts(
+      { first, after }: { first: Number; after: String | null } = {
+        first: 24,
+        after: null
+      }
+    ) {
+      const { data } = await this.$apollo.query({
+        query: products,
+        variables: { first, after }
+      })
 
-    this.products = data.products.map((product: any) => ({
-      title: product.name,
-      subtitle: product.partner,
-      text: product.name,
-      src: product.image,
-      to: product.partnerUrl,
-      partner: product.partner
-    }))
+      this.products = this.products.concat(createProductObject(data.products))
+    },
+    initInfiniteScrolling() {
+      const bottomOfWindow =
+        document.documentElement.scrollTop + window.innerHeight ===
+        document.documentElement.offsetHeight
+      if (bottomOfWindow) {
+        const lastProduct = this.products.pop()
+        this.handleProducts({ first: 24, after: lastProduct.id })
+      }
+    }
   }
 })
 </script>
@@ -101,6 +95,9 @@ export default Vue.extend({
     }
     @media #{map-get($display-breakpoints, 'lg-and-up')} {
       columns: 5;
+    }
+    @media #{map-get($display-breakpoints, 'xl-only')} {
+      columns: 8;
     }
   }
   &__item {
