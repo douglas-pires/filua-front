@@ -62,7 +62,7 @@ import Vue from 'vue'
 import { mapMutations } from 'vuex'
 
 import rules from '@/helpers/validations'
-import registerMuation from '@/apollo/register-user.graphql'
+import registerMutation from '@/apollo/register-user.graphql'
 import * as types from '@/store/snackbar/types'
 
 export default Vue.extend({
@@ -114,7 +114,7 @@ export default Vue.extend({
 
       try {
         await this.$apollo.mutate({
-          mutation: registerMuation,
+          mutation: registerMutation,
           variables: { input: user }
         })
         this.mutSetSnackbarMessage('User registered successfully!')

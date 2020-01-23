@@ -1,0 +1,9 @@
+query login($input: UserInfoLoginInput) {
+  login(input: $input) {
+    id
+    name
+    email
+    token
+    refreshToken
+  }
+}
