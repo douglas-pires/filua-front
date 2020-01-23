@@ -3,6 +3,7 @@ query institutions {
     id
     name
     about
+    image
     accounts {
       bankName
       agency

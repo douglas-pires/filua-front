@@ -9,11 +9,11 @@
   >
     <v-img
       v-if="src"
-      gradient="to top right, rgba(25,32,72,.7), rgba(255,75,43,.7)"
+      :gradient="gradient"
       :src="src"
       class="white--text align-end"
     >
-      <v-card-title>
+      <v-card-title v-if="!noGradient">
         {{ croppedTitle }}
       </v-card-title>
     </v-img>
@@ -37,7 +37,8 @@ export default Vue.extend({
     src: { type: String, default: '' },
     minWidth: { type: String, default: '200' },
     maxWidth: { type: String, default: '200' },
-    to: { type: [String, Object], default: () => {} }
+    to: { type: [String, Object], default: () => {} },
+    noGradient: { type: Boolean, default: false }
   },
   computed: {
     croppedTitle() {
@@ -45,6 +46,11 @@ export default Vue.extend({
         .split(' ')
         .slice(0, 4)
         .join(' ')
+    },
+    gradient() {
+      return this.noGradient
+        ? ''
+        : 'to top right, rgba(25,32,72,.7), rgba(255,75,43,.7)'
     }
   }
 })

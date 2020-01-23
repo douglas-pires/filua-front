@@ -51,7 +51,7 @@
         min-width="fit-content"
         max-width="300px"
       >
-        <fi-register-form />
+        <fi-register-form @close="registerDialog = false" />
       </v-dialog>
       <v-container>
         <nuxt />
@@ -83,17 +83,22 @@ export default Vue.extend({
       fixed: false,
       items: [
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-cart-minus',
           title: this.$t('MENU_DRAWER.products'),
           to: { name: this.$t('LINKS.home') }
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-hospital-building',
+          title: this.$t('MENU_DRAWER.institutions'),
+          to: { name: this.$t('LINKS.institutions') }
+        },
+        {
+          icon: 'mdi-information-outline',
           title: this.$t('MENU_DRAWER.about'),
           to: { name: this.$t('LINKS.about') }
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-settings',
           title: this.$t('MENU_DRAWER.settings'),
           to: { name: this.$t('LINKS.settings') }
         }

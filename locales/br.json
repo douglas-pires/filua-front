@@ -2,7 +2,8 @@
   "LINKS": {
     "home": "lang",
     "about": "lang-about",
-    "settings": "settings"
+    "settings": "settings",
+    "institutions": "institutions"
   },
   "NAVBAR": {
     "register": "CADASTRE-SE",
@@ -11,6 +12,7 @@
   "MENU_DRAWER": {
     "home": "Home",
     "about": "Sobre",
+    "institutions": "Instituições",
     "causes": "Causas",
     "products": "Produtos",
     "settings": "Configurações",
@@ -36,6 +38,7 @@
   },
   "REGISTER_FORM": {
     "labels": {
+      "name": "Nome",
       "email": "Email",
       "password": "Senha",
       "confirmPassword": "Confirmar Senha"
@@ -60,6 +63,7 @@
     "agencyText": "Agência",
     "accountText": "Conta-corrente",
     "addAccountText": "Adicionar outra conta",
-    "addInstitutionText": "Cadastrar Instituição"
+    "addInstitutionText": "Cadastrar Instituição",
+    "imageText": "Imagem da instituição"
   }
 }

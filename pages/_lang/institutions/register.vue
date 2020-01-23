@@ -23,6 +23,20 @@
         outlined
         :label="websiteText"
       />
+      <v-file-input
+        v-model="rawImage"
+        :rules="[rules.imageSize]"
+        prepend-icon="mdi-camera"
+        outlined
+        accept="image/png, image/jpeg, image/bmp"
+        :label="imageText"
+      >
+        <template v-slot:selection="{ text }">
+          <v-chip small label color="primary">
+            {{ text }}
+          </v-chip>
+        </template>
+      </v-file-input>
       <v-flex d-flex>
         <h2 class="primary--text">
           {{ bankInfoText }}
@@ -32,6 +46,7 @@
           {{ addAccountText }}
         </v-btn>
       </v-flex>
+
       <v-card
         v-for="(bank, index) in institution.accounts"
         :key="index"
@@ -68,6 +83,7 @@
         </v-card-text>
       </v-card>
       <v-btn
+        :loading="loading"
         :disabled="disableRegister || hasErrorMessages"
         class="primary"
         @click="addInstitution"
@@ -85,14 +101,13 @@ import rules from '@/helpers/validations'
 import addInstitution from '@/apollo/add-institution.graphql'
 import getInstitution from '@/apollo/get-institution.graphql'
 import * as types from '@/store/snackbar/types'
+import { uploadImage } from '@/services/upload-image'
 
 export default Vue.extend({
   name: 'Register',
   data() {
     return {
-      rules: {
-        ...rules
-      },
+      rules,
       registerTitle: this.$t('REGISTER_INSTITUTION.registerTitle'),
       nameText: this.$t('REGISTER_INSTITUTION.nameText'),
       aboutText: this.$t('REGISTER_INSTITUTION.aboutText'),
@@ -103,12 +118,16 @@ export default Vue.extend({
       accountText: this.$t('REGISTER_INSTITUTION.accountText'),
       addAccountText: this.$t('REGISTER_INSTITUTION.addAccountText'),
       addInstitutionText: this.$t('REGISTER_INSTITUTION.addInstitutionText'),
+      imageText: this.$t('REGISTER_INSTITUTION.imageText'),
+      loading: false,
       errors: {
         isDuplicate: ''
       },
+      rawImage: null,
       institution: {
         name: '',
         about: '',
+        image: [],
         website: '',
         accounts: [{ bankName: '', agency: '', account: '' }]
       }
@@ -152,7 +171,10 @@ export default Vue.extend({
       return (this.errors.isDuplicate = '')
     },
     async addInstitution() {
+      this.loading = true
       try {
+        const { imageUrl } = await uploadImage(this.rawImage as any)
+        this.institution.image = imageUrl
         await this.$apollo.mutate({
           mutation: addInstitution,
           variables: { input: this.institution }
@@ -164,6 +186,7 @@ export default Vue.extend({
           'An error has ocurred. Please, try again later'
         )
       }
+      this.loading = false
     }
   }
 })

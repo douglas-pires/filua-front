@@ -2,7 +2,8 @@
   "LINKS": {
     "home": "index",
     "about": "about",
-    "settings": "settings"
+    "settings": "settings",
+    "institutions": "institutions"
   },
   "NAVBAR": {
     "register": "REGISTER",
@@ -10,6 +11,7 @@
   },
   "MENU_DRAWER": {
     "home": "Home",
+    "institutions": "Institutions",
     "about": "About",
     "causes": "Causes",
     "products": "Products",
@@ -36,6 +38,7 @@
   },
   "REGISTER_FORM": {
     "labels": {
+      "name": "Name",
       "email": "Email",
       "password": "Password",
       "confirmPassword": "Confirm Password"
@@ -60,6 +63,7 @@
     "agencyText": "Agency",
     "accountText": "Account",
     "addAccountText": "Add new account",
-    "addInstitutionText": "Register Institution"
+    "addInstitutionText": "Register Institution",
+    "imageText": "Institution's image"
   }
 }

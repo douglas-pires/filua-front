@@ -8,8 +8,10 @@
         <fi-card
           v-for="(institution, index) in institutions"
           :key="index"
+          no-gradient
           :title="institution.name"
           :text="institution.about"
+          :src="institution.image"
         />
       </v-flex>
     </v-flex>

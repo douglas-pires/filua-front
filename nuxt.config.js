@@ -51,7 +51,12 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
+    [
+      '@nuxtjs/dotenv',
+      {
+        filename: `.env.${process.env.NODE_ENV}`
+      }
+    ],
     // Doc: https://github.com/nuxt-community/apollo-module
     '@nuxtjs/apollo'
   ],
@@ -115,7 +120,6 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
