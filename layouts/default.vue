@@ -44,7 +44,7 @@
     </v-app-bar>
     <v-content>
       <v-dialog v-model="loginDialog" min-width="fit-content" max-width="300px">
-        <fi-login-form />
+        <fi-login-form @close="loginDialog = false" />
       </v-dialog>
       <v-dialog
         v-model="registerDialog"
