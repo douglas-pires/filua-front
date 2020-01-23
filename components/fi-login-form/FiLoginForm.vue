@@ -81,6 +81,11 @@ export default Vue.extend({
         })
         this.mutSetSnackbarMessage(`Welcome back, ${data.login.name}!`)
         this.$emit('close')
+        localStorage.setItem(process.env.TOKEN_ID!, data.login.token)
+        localStorage.setItem(
+          process.env.REFRESH_TOKEN_ID!,
+          data.login.refreshToken
+        )
       } catch (error) {
         const err = JSON.parse(JSON.stringify(error))
         this.mutSetSnackbarMessage(err.message.replace('GraphQL error: ', ''))
