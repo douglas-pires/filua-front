@@ -38,7 +38,9 @@ export default Vue.extend({
         fetchPolicy: 'no-cache'
       })
       this.institutions = data.institutions
-    } catch (error) {}
+    } catch (error) {
+      //
+    }
   }
 })
 </script>
